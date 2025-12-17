@@ -1,6 +1,6 @@
 <h2 align="center">Description files</h2>
 
-- Prime-M35P_Func.pdf - board functional diagram;
+- Prime-M35P_v24.pdf - board functional diagram;
 
 <h2 align="center">Linux system build procedure</h2>
 
