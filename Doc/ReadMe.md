@@ -41,7 +41,7 @@ Prime-M$ cd u-boot-m
 Prime-M/u-boot-m$ make ARCH=arm CROSS_COMPILE=${CC} distclean  
 Prime-M/u-boot-m$ make ARCH=arm CROSS_COMPILE=${CC} prime_m_defconfig  
 Prime-M/u-boot-m$ make ARCH=arm CROSS_COMPILE=${CC} menuconfig  
-*making necessary changes, save-exit*  
+*making necessary changes, Device Drivers->Network device support->ON->Allwinner Sun8i Ethernet MAC support ON , save-exit* 
 Prime-M/u-boot-m$ make ARCH=arm CROSS_COMPILE=${CC} -j16  
 Prime-M/u-boot-m$ cp u-boot-sunxi-with-spl.bin ../uSD/  
 Prime-M/u-boot-m$ cd ..  
