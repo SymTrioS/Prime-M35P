@@ -73,7 +73,7 @@ bootz 0x42000000 - 0x43000000
 **create scr-file**  
 Prime-M/uSD$ mkimage -C none -A arm -T script -d boot.cmd boot.scr  
 
-**Create uSD card:**
+**Create uSD card:**  
 Prime-M/uSD$ gparted  
 ( part1=~50M,fat16; part2=ext4 )  
 Prime-M/uSD$ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdx bs=1024 seek=8  
