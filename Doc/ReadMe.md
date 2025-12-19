@@ -64,25 +64,39 @@ Prime-M/linux-m$ cp arch/arm/boot/dts/allwinner/sun8i-v3s-prime-m.dtb ../uSD/
 Prime-M/linux-m$ cp arch/arm/boot/zImage ../uSD/  
 Prime-M/linux-m$ cd ../uSD  
 
-**create text file: nano boot.cmd**  
+**Preparing the uSD card**  
+Prime-S$ cd uSD  
+*create text file boot.cmd*  
+Prime-S/uSD$ nano boot.cmd  
+*add the following lines to a text file and save*  
+
 setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10  
 load mmc 0:1 0x43000000 ${fdtfile}  
 load mmc 0:1 0x42000000 zImage  
 bootz 0x42000000 - 0x43000000  
-(Cntr-O / Cntr-X)  
+
 **create scr-file**  
 Prime-M/uSD$ mkimage -C none -A arm -T script -d boot.cmd boot.scr  
 
 **Create uSD card:**  
 Prime-M/uSD$ gparted  
-( part1=~50M,fat16; part2=ext4 )  
+*( Create two partitions: part1=~32M,fat16; part2=ext4 )*  
+*Remember the letter designation of the Flash device, below it is designated as x: sdx1,sdx2*  
+
+*Write u-boot:*  
 Prime-M/uSD$ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdx bs=1024 seek=8  
+
+*Write Linux Kernel:*  
 Prime-M/uSD$ sudo mount /dev/sdx1 /mnt  
 Prime-M/uSD$ sudo cp zImage /mnt  
 Prime-M/uSD$ sudo cp boot.scr /mnt  
 Prime-M/uSD$ sudo cp sun8i-v3s-prime-m.dtb /mnt  
 Prime-M$/uSD sync  
 Prime-M/uSD$ sudo umount /dev/sdx1  
+
+*Get https://disk.yandex.ru/d/VCLHKDqusnvv8A/debian12.rootfs-m.tar rootFS in uSD folder or use another build*  
+
+*Write FS:*  
 Prime-M/uSD$ sudo mount /dev/sdx2 /mnt  
 Prime-M/uSD$ sudo tar -C /mnt/ -xf debian12rootfs.tar  
 Prime-M/uSD$ sync  
