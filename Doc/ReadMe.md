@@ -46,3 +46,47 @@ Prime-M/u-boot-m$ make ARCH=arm CROSS_COMPILE=${CC} -j16
 Prime-M/u-boot-m$ cp u-boot-sunxi-with-spl.bin ../uSD/  
 Prime-M/u-boot-m$ cd ..  
 
+**KERNEL 6.6.0** (arm-linux-gnueabihf 13.3.0 cross-compiler)  
+Prime-M$ git clone --depth=1 https://github.com/SymTrioS/linux-m.git -b cedrus/h264-encoding  
+Prime-M$ cd linux-m  
+Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- distclean  
+Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- sunxi-m_defconfig  
+Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig  
+
+( Device Drivers->Network device support->Ethernet driver support-> + ->STMicroelectronics devices ON  
+                                                  STMicroelectronics Multi-Gigabit Ethernet driver ON  
+  File systems->Network File Systems->                              + NFS...NFSv4.1 ON              )  
+
+Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j16  
+Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j16 INSTALL_MOD_PATH=out modules  
+Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j16 INSTALL_MOD_PATH=out modules_install  
+Prime-M/linux-m$ cp arch/arm/boot/dts/allwinner/sun8i-v3s-prime-m.dtb ../uSD/  
+Prime-M/linux-m$ cp arch/arm/boot/zImage ../uSD/  
+Prime-M/linux-m$ cd ../uSD  
+
+**create text file: nano boot.cmd**
+setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10
+load mmc 0:1 0x43000000 ${fdtfile}
+load mmc 0:1 0x42000000 zImage
+bootz 0x42000000 - 0x43000000
+(Cntr-O / Cntr-X)
+**create scr-file**
+Prime-M/uSD$ mkimage -C none -A arm -T script -d boot.cmd boot.scr  
+
+**Create uSD card:**
+Prime-M/uSD$ gparted  
+( part1=~50M,fat16; part2=ext4 )  
+Prime-M/uSD$ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdx bs=1024 seek=8  
+Prime-M/uSD$ sudo mount /dev/sdx1 /mnt  
+Prime-M/uSD$ sudo cp zImage /mnt  
+Prime-M/uSD$ sudo cp boot.scr /mnt  
+Prime-M/uSD$ sudo cp sun8i-v3s-prime-m.dtb /mnt  
+Prime-M$/uSD sync  
+Prime-M/uSD$ sudo umount /dev/sdx1  
+Prime-M/uSD$ sudo mount /dev/sdx2 /mnt  
+Prime-M/uSD$ sudo tar -C /mnt/ -xf debian12rootfs.tar  
+Prime-M/uSD$ sync  
+Prime-M/uSD$ cd ../linux-m  
+Prime-M/linux-m$ sudo cp -r out/lib /mnt/usr/  
+Prime-M/linux-m$ sync  
+Prime-M/linux-m$ sudo umount /dev/sdx2  
