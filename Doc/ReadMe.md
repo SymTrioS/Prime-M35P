@@ -64,13 +64,13 @@ Prime-M/linux-m$ cp arch/arm/boot/dts/allwinner/sun8i-v3s-prime-m.dtb ../uSD/
 Prime-M/linux-m$ cp arch/arm/boot/zImage ../uSD/  
 Prime-M/linux-m$ cd ../uSD  
 
-**create text file: nano boot.cmd**
-setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10
-load mmc 0:1 0x43000000 ${fdtfile}
-load mmc 0:1 0x42000000 zImage
-bootz 0x42000000 - 0x43000000
-(Cntr-O / Cntr-X)
-**create scr-file**
+**create text file: nano boot.cmd**  
+setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10  
+load mmc 0:1 0x43000000 ${fdtfile}  
+load mmc 0:1 0x42000000 zImage  
+bootz 0x42000000 - 0x43000000  
+(Cntr-O / Cntr-X)  
+**create scr-file**  
 Prime-M/uSD$ mkimage -C none -A arm -T script -d boot.cmd boot.scr  
 
 **Create uSD card:**
