@@ -53,9 +53,9 @@ Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- distclean
 Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- sunxi-m_defconfig  
 Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig  
 
-( Device Drivers->Network device support->Ethernet driver support-> + ->STMicroelectronics devices ON  
-                                                  STMicroelectronics Multi-Gigabit Ethernet driver ON  
-  File systems->Network File Systems->                              + NFS...NFSv4.1 ON              )  
+*Device Drivers->Network device support->Ethernet driver support-> + ->STMicroelectronics devices ON*  
+*------------------------------------------------STMicroelectronics Multi-Gigabit Ethernet driver ON*  
+*File systems->Network File Systems->                              + NFS...NFSv4.1 ON*  
 
 Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j16  
 Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j16 INSTALL_MOD_PATH=out modules  
@@ -65,9 +65,8 @@ Prime-M/linux-m$ cp arch/arm/boot/zImage ../uSD/
 Prime-M/linux-m$ cd ../uSD  
 
 **Preparing the uSD card**  
-Prime-S$ cd uSD  
 *create text file boot.cmd*  
-Prime-S/uSD$ nano boot.cmd  
+Prime-M/uSD$ nano boot.cmd  
 *add the following lines to a text file and save*  
 
 setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10  
