@@ -77,9 +77,9 @@ bootz 0x42000000 - 0x43000000
 **create scr-file**  
 Prime-M/uSD$ mkimage -C none -A arm -T script -d boot.cmd boot.scr  
 
-**Create uSD card:**  
+**Preparing uSD card:**  
 Prime-M/uSD$ gparted  
-*( Create two partitions: part1=~32M,fat16; part2=ext4 )*  
+*Create two partitions: part1=~32M,fat16; part2=ext4*  
 *Remember the letter designation of the Flash device, below it is designated as x: sdx1,sdx2*  
 
 *Write u-boot:*  
@@ -97,7 +97,7 @@ Prime-M/uSD$ sudo umount /dev/sdx1
 
 *Write FS:*  
 Prime-M/uSD$ sudo mount /dev/sdx2 /mnt  
-Prime-M/uSD$ sudo tar -C /mnt/ -xf debian12rootfs.tar  
+Prime-M/uSD$ sudo tar -C /mnt/ -xf debian12.rootfs-m.tar  
 Prime-M/uSD$ sync  
 Prime-M/uSD$ cd ../linux-m  
 Prime-M/linux-m$ sudo cp -r out/lib /mnt/usr/  
