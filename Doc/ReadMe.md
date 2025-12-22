@@ -4,7 +4,9 @@
 
 - Box_PL2943.pdf     - type and dimensions of a small-sized enclosure suitable for the Prime-M35P board,  
                        a 4.3" LCD can be placed on the top panel;  
-                       
+
+- Box_120x97x40.jpg  - small-sized aluminum box for Prime-M35P board;  
+
 - Prime-M35P_Dim.pdf - board dimensions, connector locations, and pin numbering.  
 
 <h2 align="center">Linux system build procedure</h2>
