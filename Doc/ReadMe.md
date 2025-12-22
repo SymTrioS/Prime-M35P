@@ -2,6 +2,9 @@
 
 - Prime-M35P_v24.pdf - board functional diagram;
 
+- Box_PL2943.pdf     - type and dimensions of a small-sized enclosure suitable for the Prime-M35P board,  
+                       a 4.3" LCD can be placed on the top panel.
+
 <h2 align="center">Linux system build procedure</h2>
 
 **Package installation**  
