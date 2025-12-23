@@ -1,6 +1,6 @@
 # Prime-M35P
 
-![Prime-M35P Board](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/Prime-M35P.jpg)
+![Prime-M35P Board](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/Prime_M35P.jpg)
 
 ### A Heterogeneous Computing Platform with Three Integrated Processing Units
 
@@ -31,7 +31,7 @@ The board includes integrated development tools accessible via a single USB Type
 
 ## Architecture
 
-![Functional Diagram](https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-M35P_Func.jpg)
+![Functional Diagram](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/Prime-M35P_Func.jpg)
 
 ### System Components
 
