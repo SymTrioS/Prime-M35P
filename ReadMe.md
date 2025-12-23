@@ -130,7 +130,8 @@ The board includes integrated development tools accessible via a single USB Type
 ### Quick Start
 
 1. **Linux image**
-   The pre-prepared Linux files and instructions for writing them to the uSD card are located in the uSD directory.  Instructions for building your own version of the Linux system image are located in the Doc directory.
+   
+   The pre-prepared Linux files and instructions for writing them to the uSD card are located in the **uSD** directory.  Instructions for building your own version of the Linux system image are located in the **Doc** directory.
    
 2. **Connect the Board**
    
