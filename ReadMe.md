@@ -55,7 +55,7 @@ The board includes integrated development tools accessible via a single USB Type
 - One connector, with a 2.54mm pitch, is made with a HUB-75 pinout for the possibility of connecting an LED panel;  
 - Development environment: QuartusII-9.1sp2 IDE (`.rbf` bitstream format).  
 
-#### **STM32F373CCT6 Microcontroller**
+#### **STM32F373CCT Microcontroller**
 - ARM Cortex-M4 core at 72 MHz;
 - Memory: 256 KB Flash, 32 KB SRAM;
 - External storage: 8 MB SPI Flash (W25Q64), 8 KB I²C EEPROM (M24C64);
@@ -102,7 +102,7 @@ The board includes integrated development tools accessible via a single USB Type
 | Development Tool | QuartusII IDE |
 | Bitstream Format | `.rbf` |
 
-### GD32F303CCT6 Microcontroller
+### STM32F373CCT Microcontroller
 
 | Parameter | Specification |
 |-----------|---------------|
