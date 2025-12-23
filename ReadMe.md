@@ -60,7 +60,10 @@ The board includes integrated development tools accessible via a single USB Type
 - Memory: 256 KB Flash, 32 KB SRAM;
 - External storage: 8 MB SPI Flash (W25Q64), 8 KB I²C EEPROM (M24C64);
 - Integrated analog peripherals: 3×12-bit DAC, 5×12-bit ADC, 6×16-bit ADC channels;
-- Communication interfaces: UART, SPI, I²C, CAN, GPIO;
+- Communication interfaces: USB, UART, SPI, I²C, CAN, GPIO;
+- 6 pins of a 16-bit ADC, 5 pins of a 12-bit ADC, as well as three pins of a 12-bit DAC (multiplexed with 12-bit ADC) are output to the external connector;
+- SPI/GPIO pins are connected to the other part of the connector, which can be used to connect the SPI display;
+- A receiver-transmitter with a CAN interface with contacts on an external connector is connected to the microcontroller, with the possibility of connecting a built-in 120 ohm load resistor;
 - Debug interface: CMSIS-DAP via USB Type-C;
 - Display support: SPI/GPIO connector for external SPI-displays;
 - Firmware format: Intel HEX (`.hex`)
@@ -111,7 +114,7 @@ The board includes integrated development tools accessible via a single USB Type
 | External EEPROM | 8 KB M24C64 (I²C) |
 | Integrated DAC | 3×12-bit channels |
 | Integrated ADC | 5×12-bit + 6×16-bit channels |
-| Communication | UART, SPI, I²C, CAN |
+| Communication | USB, UART, SPI, I²C, CAN |
 | General I/O | GPIO, analog I/O |
 | Debug Interface | CMSIS-DAP-S via USB Type-C |
 | Display Connector | SPI/GPIO |
