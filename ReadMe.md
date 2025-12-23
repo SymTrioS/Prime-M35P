@@ -1,0 +1,233 @@
+# Prime-M35P
+
+![Prime-M35P Board](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/Prime-M35P.jpg)
+
+### A Heterogeneous Computing Platform with Three Integrated Processing Units
+
+---
+
+## Overview
+
+The Prime-M35P is a versatile development board that integrates three distinct computing architectures into a single platform:
+
+- **User Interface Processor** - ARM Cortex-A7 based 1.2GHz Linux system for application development and I/O management
+- **Hardware Processing Unit** - FPGA for custom logic and hardware acceleration
+- **Microcontroller** - ARM Cortex-M4 for real-time analog and digital signal processing
+
+The board includes integrated development tools accessible via a single USB Type-C connection, including a microcontroller programmer/debugger (CMSIS-DAP), dual-channel USB-to-UART converter, and FPGA configuration interface.
+
+---
+
+## Table of Contents
+
+- [Architecture](#architecture)
+- [Hardware Specifications](#hardware-specifications)
+- [Getting Started](#getting-started)
+- [Display Configuration](#display-configuration)
+- [Development Resources](#development-resources)
+- [Factory Configuration](#factory-configuration)
+
+---
+
+## Architecture
+
+![Functional Diagram](https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-M35P_Func.jpg)
+
+### System Components
+
+#### **Allwinner V3S Application Processor**
+- ARM Cortex-A7 microprocessor, maximum core frequency up to 1.2G with 512Mbit DDR2 RAM;  
+- Hardware H.264 video and JPEG/MJPEG decoding up to 1080p@30fps, H.264 encoder by 720p@60fps;  
+- Peripheral interfaces: Ethernet, USB-A Host, SDIO, UART, SPI, I²C, GPIO, audio, mic;  
+- The board contains connectors for Ethernet, USB, uSD, 4pin audio jack and speaker connector;  
+- Display support: LCD interface (up to 1024×768 resolution);  
+- Camera interface: up to 5 MP sensor, MIPI-CSI2 interface;  
+- The board contains connectors for connecting flat LCD display cables combined with a responsive touch screen (40 pin), as well as additional connectors for a capacitive touch screen (6pin) and a digital camera (20pin);  
+- Operating system: Linux (Debian 12 supported).  
+
+#### **Altera EP1C3T144 FPGA**
+- Logic resources: 2,910 LES/flip-flops;  
+- The amount of built-in configurable RAM is 59904 bits;  
+- External SDRAM: 256 Mbit (16M × 16-bit);  
+- External configuration flash memory: 16 Mbit P25Q16, connected to the system microcontroller;  
+- Analog front-end: two 12-bit ADC and two 12-bit DAC converters;  
+- Interfaces: SDIO, GPIO, user-configurable I/O; On the connectors, using GPIO pins that support LVDS, LVTTL, and PCI standards, it is possible to create arbitrary user interfaces specified by the FPGA configuration;  
+- One connector, with a 2.54mm pitch, is made with a HUB-75 pinout for the possibility of connecting an LED panel;  
+- Development environment: QuartusII-9.1sp2 IDE (`.rbf` bitstream format).  
+
+#### **STM32F373CCT6 Microcontroller**
+- ARM Cortex-M4 core at 72 MHz;
+- Memory: 256 KB Flash, 32 KB SRAM;
+- External storage: 8 MB SPI Flash (W25Q64), 8 KB I²C EEPROM (M24C64);
+- Integrated analog peripherals: 3×12-bit DAC, 5×12-bit ADC, 6×16-bit ADC channels;
+- Communication interfaces: UART, SPI, I²C, CAN, GPIO;
+- Debug interface: CMSIS-DAP via USB Type-C;
+- Display support: SPI/GPIO connector for external SPI-displays;
+- Firmware format: Intel HEX (`.hex`)
+
+---
+
+## Hardware Specifications
+
+### V3S Microprocessor
+
+| Parameter | Specification |
+|-----------|---------------|
+| Architecture | ARM Cortex-A7 |
+| Clock Frequency | 1200 MHz |
+| System Memory | 64 MB DDR2 |
+| Video Decoder | H.264 up to 1080@30fps |
+| Video Encoder | H.264 up to 720@60fps |
+| Host Interface | USB-A |
+| Ethernet | 10/100 Mbit |
+| Serial Interfaces | UART, SPI, I²C |
+| General I/O | GPIO |
+| Display Support | LCD interface (up to 1024×768 pixels) |
+| Camera Support | Up to 5 MP sensor |
+| Operating System | Linux (Debian 12) |
+
+### FPGA - Altera EP1C3T144
+
+| Parameter | Specification |
+|-----------|---------------|
+| Logic Elements | 2,910 LES/flip-flops |
+| Embedded Memory | 59904 bit RAM |
+| External Memory | 256 Mbit SDRAM (16M×16-bit) |
+| External Flash | 16 Mbit P25Q16 |
+| Analog Inputs | Two 12-bit ADC121 converters |
+| Analog Outputs | Two 12-bit DAC7311 converters |
+| Development Tool | QuartusII IDE |
+| Bitstream Format | `.rbf` |
+
+### GD32F303CCT6 Microcontroller
+
+| Parameter | Specification |
+|-----------|---------------|
+| Core | ARM Cortex-M4 |
+| Clock Frequency | 72 MHz |
+| Flash Memory | 256 KB |
+| SRAM | 32 KB |
+| External Flash | 8 MB W25Q64 (SPI) |
+| External EEPROM | 8 KB M24C64 (I²C) |
+| Integrated DAC | 3×12-bit channels |
+| Integrated ADC | 5×12-bit + 6×16-bit channels |
+| Communication | UART, SPI, I²C, CAN |
+| General I/O | GPIO, analog I/O |
+| Debug Interface | CMSIS-DAP-S via USB Type-C |
+| Display Connector | SPI/GPIO |
+| Firmware Format | `.hex` |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- USB Type-C cable
+- Terminal emulator software (e.g., PuTTY, Tera Term, minicom)
+- Serial port settings: 115200 baud, 8N1
+
+### Quick Start
+
+1. **Connect the Board**
+   
+   Connect the Prime-M35P to your computer using the USB Type-C connector.
+
+2. **Verify Device Enumeration**
+   
+   Three USB devices should appear in your system:
+   
+   - **CMSIS-DAP-S** - Microcontroller debugger interface
+   - **COM Port 1** - V3S UART console
+   - **COM Port 2** - STM32F373 UART debug output
+
+   ![COM Port Detection](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/Com45.jpg)
+
+3. **Access the Linux Console**
+   
+   Open COM Port 1 in your terminal emulator (115200 8N1). When a uSD drive containing a Linux image is inserted, you will see boot messages and a login prompt.
+   
+   **Default credentials (Debian 12):**
+   - Username: `root`
+   - Password: `root`
+   
+   For instructions on building a custom Linux image, refer to the documentation in the `Doc` folder.
+
+4. **Monitor Microcontroller Output**
+   
+   Open COM Port 2 to view real-time diagnostic output from the STM32F373. The test firmware reports:
+   - Cyclic DAC voltage values;
+   - Data from the two FPGA-connected ADC121 converters.
+
+### LED Indicators
+
+During operation:
+- **White LED** - Indicates FPGA register access (external ADC121 readout)
+
+---
+
+## Development Resources
+
+### Microcontroller Firmware
+
+Test firmware is available for two development environments:
+
+- **IAR Embedded Workbench:**
+- **Visual Studio Code:**
+
+![Development Environments](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/Prime-M35P_IAR_VSC.jpg)
+
+### FPGA Development
+
+The FPGA test project for QuartusII IDE is available at:
+
+[EP1C3T144](https://github.com/SymTrioS/EP1C3T144)
+
+![QuartusII IDE](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/QuartusII.jpg)
+
+### Prebuilt Binaries
+
+Ready-to-use binaries are located in the `Bin` directory:
+- **STM32F373 firmware** - `.hex` format
+- **FPGA configuration** - `.rbf` format
+
+---
+
+## Factory Configuration
+
+The board ships with preloaded test firmware and FPGA configuration. All factory binaries are available in the `Bin` directory for restoration or reference.
+
+---
+
+## Display Configuration
+
+### LCD Panel Connection
+
+The board supports LCD panels with a 40-pin FFC (flat flex cable) connector. Compatible display sizes include:
+
+- 4.3-inch displays (480×272 or 800×480 pixels)
+- 5.0-inch displays (800×480 pixels)
+- 7.0-inch displays (800×480 or 1024x768 pixels)
+
+**Touchscreen support:**
+- Resistive touchscreens: Supported
+- Capacitive touchscreens: Supported
+
+![LCD 40-Pin Connector](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/M35_LCD_40pin.jpg)
+
+## Additional Resources
+
+- **Documentation:** See the `Doc` folder for detailed hardware specifications and Linux build instructions
+- **Schematics:** Available in the repository for reference
+- **Community Support:** Open an issue on GitHub for technical questions or bug reports
+
+---
+
+## License
+
+Please refer to the repository license file for terms of use.
+
+---
+
+**Note:** This board is designed for development and prototyping. Ensure proper thermal management and power supply specifications are met for your specific application requirements.
+
