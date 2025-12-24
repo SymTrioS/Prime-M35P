@@ -37,7 +37,8 @@ The board includes integrated development tools accessible via a single USB Type
 
 #### **Allwinner V3S Application Processor**
 - ARM Cortex-A7 microprocessor, maximum core frequency up to 1.2G with 512Mbit DDR2 RAM;  
-- Hardware H.264 video and JPEG/MJPEG decoding up to 1080p@30fps, H.264 encoder by 720p@60fps;  
+- Hardware H.264 video and JPEG/MJPEG decoding up to 1080p@30fps, H.264 encoder by 720p@60fps;
+- External FLASH: W25N02G (256MB);  
 - Peripheral interfaces: Ethernet, USB-A Host, SDIO, UART, SPI, I²C, GPIO, audio, mic;  
 - The board contains connectors for Ethernet, USB, uSD, 4pin audio jack and speaker connector;  
 - Display support: LCD interface (up to 1024×768 resolution);  
@@ -79,6 +80,7 @@ The board includes integrated development tools accessible via a single USB Type
 | Architecture | ARM Cortex-A7 |
 | Clock Frequency | 1200 MHz |
 | System Memory | 64 MB DDR2 |
+| External FLASH | 256 MB |
 | Video Decoder | H.264 up to 1080@30fps |
 | Video Encoder | H.264 up to 720@60fps |
 | Host Interface | USB-A |
