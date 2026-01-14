@@ -175,21 +175,25 @@ The board includes integrated development tools accessible via a single USB Type
    - Windows x64 https://disk.yandex.ru/d/nLgDVntTmMBXSg
    - Linux x64   https://disk.yandex.ru/d/2vthDuQ_mu_6SQ
      
-   *The work with the CMSIS-DAP-S microcontroller debugger and the PrimeFPGA utility should be separated in time. The board's system controller supports only one of the connections at a time. 
+   *The work with the CMSIS-DAP-S microcontroller debugger and the PrimeFPGA utility should be separated in time. The board's system controller supports only one of the connections at a time.*
 
-   ![PrimeFPGA_utility](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/PrimeFPGA_1.jpg)
+   ![PrimeFPGA_utility](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/PrimeFPGA_123.jpg)
      
-     -*When the "Connect" button is clicked and the connection to the board is successful, the board type is displayed, as well as the expected configuration file extension for this board. The button will change its function to "Disconnect".*
+     -*When the "Connect" button is clicked and the connection to the board is successful, the board type and serial number is displayed, as well as the expected configuration file extension for this board. The button will change its function to "Disconnect".*
      
      -*Use the "file" button to select the desired configuration file. After it is successfully opened, the number of configuration bytes will be displayed.*
+   
+   ![PrimeFPGA_utility](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/PrimeFPGA_456.jpg)
      
      -*When you click the "Config" button, the FPGA configuration process starts, the start is accompanied by the message "begin...". The successful end of the process is indicated by the message "Done!". During the configuration process, the green LED of the system controller is lit continuously. This configuration is not saved after the board is powered off.*
      
      -*You can reset the downloaded configuration by clicking the "RST" button,upon successful configuration reset, the message "RST OK" will appear, or by downloading a new configuration from another file.*
+
+   ![PrimeFPGA_utility](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/PrimeFPGA_789.jpg)
      
      -*By pressing the "Save" button, the configuration is saved in the flash memory of the board. The message at the beginning of the recording is "begin...", the successful completion is "Done!". The green LED of the system controller flashes during recording. When writing the configuration to the flash memory, the configuration of the FPGA chip itself does not occur. The recorded configuration will be loaded every time the board is restarted: on reset or power on.*
      
-     -*You can delete the recorded configuration by clicking on the "CLR" button. However, the configuration will not be loaded when the board is restarted. The message on successful deleted is "CLR OK".*
+     -*You can delete the recorded configuration by clicking on the "DEL" button. However, the configuration will not be loaded when the board is restarted. The message on successful deleted is "DEL OK".*
 
      -*To start an application running Linux, run the command **sudo -u <user_name> ./PrimeFPGA.sh** from the program directory. If the warnings "dconf-WARNING..." appear in the terminal, they can be removed by installing: **sudo apt install dbus-x11***
      
