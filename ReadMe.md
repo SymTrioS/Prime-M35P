@@ -172,7 +172,7 @@ The board includes integrated development tools accessible via a single USB Type
 
    The PrimeFPGA utility is used to configure the FPGA, as well as write configuration data to long-term memory. Available for download in Windows and Linux versions.
    
-   - Windows x64 https://disk.yandex.ru/d/nLgDVntTmMBXSg
+   - Windows x64 https://disk.yandex.ru/d/OT3DqWM2cuohtw
    - Linux x64   https://disk.yandex.ru/d/2vthDuQ_mu_6SQ
      
    *The work with the CMSIS-DAP-S microcontroller debugger and the PrimeFPGA utility should be separated in time. The board's system controller supports only one of the connections at a time.*
