@@ -175,6 +175,10 @@ The board includes integrated development tools accessible via a single USB Type
    - Windows x64 https://disk.yandex.ru/d/nLgDVntTmMBXSg
    - Linux x64   https://disk.yandex.ru/d/2vthDuQ_mu_6SQ
 
+   ![PrimeFPGA_utility](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/PrimeFPGA_1.jpg)
+     
+   The work with the CMSIS-DAP-S microcontroller debugger and the PrimeFPGA utility should be separated in time. The board's system controller supports only one of the connections at a time.
+      
      -*When the "Connect" button is clicked and the connection to the board is successful, the board type is displayed, as well as the expected configuration file extension for this board. The button will change its function to "Disconnect".*
      
      -*Use the "file" button to select the desired configuration file. After it is successfully opened, the number of configuration bytes will be displayed.*
@@ -189,11 +193,6 @@ The board includes integrated development tools accessible via a single USB Type
 
      -*To start an application running Linux, run the command **sudo -u <user_name> ./PrimeFPGA.sh** from the program directory. If the warnings "dconf-WARNING..." appear in the terminal, they can be removed by installing: **sudo apt install dbus-x11***
      
-     
-   ![PrimeFPGA_utility](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/PrimeFPGA_1.jpg)
-     
-   The work with the CMSIS-DAP-S microcontroller debugger and the PrimeFPGA utility should be separated in time. The board's system controller supports only one of the connections at a time.
-      
 ### LED Indicators
 
 During operation:
