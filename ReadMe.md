@@ -186,6 +186,8 @@ The board includes integrated development tools accessible via a single USB Type
      -*By pressing the "Save" button, the configuration is saved in the flash memory of the board. The message at the beginning of the recording is "begin...", the successful completion is "Done!". The green LED of the system controller flashes during recording. When writing the configuration to the flash memory, the configuration of the FPGA chip itself does not occur. The recorded configuration will be loaded every time the board is restarted: on reset or power on.*
      
      -*You can reset the recorded configuration by clicking on the "CLR" button. However, the configuration will not be loaded when the board is restarted. The message on successful reset is "CLR OK".*
+
+     -*To start an application running Linux, run the command **sudo -u <user_name> ./PrimeFPGA.sh** from the program directory. If the warnings "dconf-WARNING..." appear in the terminal, they can be removed by installing: **sudo apt install dbus-x11***
      
      
    ![PrimeFPGA_utility](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/PrimeFPGA_1.jpg)
