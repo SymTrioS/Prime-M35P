@@ -175,7 +175,7 @@ The board includes integrated development tools accessible via a single USB Type
    - Windows x64 https://disk.yandex.ru/d/nLgDVntTmMBXSg
    - Linux x64   https://disk.yandex.ru/d/2vthDuQ_mu_6SQ
      
-   The work with the CMSIS-DAP-S microcontroller debugger and the PrimeFPGA utility should be separated in time. The board's system controller supports only one of the connections at a time. 
+   *The work with the CMSIS-DAP-S microcontroller debugger and the PrimeFPGA utility should be separated in time. The board's system controller supports only one of the connections at a time. 
 
    ![PrimeFPGA_utility](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/PrimeFPGA_1.jpg)
      
