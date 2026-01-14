@@ -168,10 +168,16 @@ The board includes integrated development tools accessible via a single USB Type
    - Cyclic DAC voltage values;
    - Data from the two FPGA-connected ADC121 converters.
 
+6. **Configuring the FPGA**
+
+   The PrimeFPGA utility is used to configure the FPGA, as well as write configuration data to long-term memory. Available for download in Windows and Linux versions.
+   - Windows x64 https://disk.yandex.ru/d/nLgDVntTmMBXSg
+   - Linux x64   https://disk.yandex.ru/d/2vthDuQ_mu_6SQ
+   
 ### LED Indicators
 
 During operation:
-- **White LED** - Indicates FPGA register access (external ADC121 readout)
+- **Yellow LED** - Indicates FPGA register access (external ADC121 readout)
 
 ---
 
