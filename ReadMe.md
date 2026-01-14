@@ -150,7 +150,7 @@ The board includes integrated development tools accessible via a single USB Type
    - **COM Port 1** - V3S UART console
    - **COM Port 2** - STM32F373 UART debug output
 
-   ![COM Port Detection](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/Com45.jpg)
+   ![COM Port Detection](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/Com_45.jpg)
 
 4. **Access the Linux Console**
    
