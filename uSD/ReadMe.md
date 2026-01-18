@@ -7,6 +7,7 @@ Prime-M35P/uSD$ gparted
 
 *Write u-boot:*  
 Prime-M35P/uSD$ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdx bs=1024 seek=8  
+*The finished loader file compiled for display resolution 1024x600 is located in directory DOC: u-boot-sunxi-with-spl.bin*  
 
 *Write Linux Kernel:*  
 Prime-M35P/uSD$ sudo mount /dev/sdx1 /mnt  

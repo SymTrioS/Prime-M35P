@@ -44,6 +44,12 @@ Prime-M$ mkdir uSD
 
 **U-BOOT**  
 Prime-M$ git clone https://github.com/SymTrioS/u-boot-m.git -b v3s-current  
+
+*To use the video output mode with a resolution of 1024 x 600, which is suitable for output to the monitor via a 40pinLCD-VGA adapter, it is necessary to make changes to the loader files:*  
+*configs/prime_m_defconfig - Replace the video mode line with the following: CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:18,pclk_khz:45000,le:150,ri:16,up:21,lo:2,hs:10,vs:2,sync:3,vmode:0"*  
+*include/configs/sunxi-common.h - Increase the size of the video buffer to 3 MB, line 296: #define CONFIG_SUNXI_MAX_FB_SIZE (3 << 20)*  
+*The finished loader file compiled for this display resolution is located in this directory: u-boot-sunxi-with-spl.bin*  
+
 Prime-M$ cd u-boot-m  
 Prime-M/u-boot-m$ make ARCH=arm CROSS_COMPILE=${CC} distclean  
 Prime-M/u-boot-m$ make ARCH=arm CROSS_COMPILE=${CC} prime_m_defconfig  
