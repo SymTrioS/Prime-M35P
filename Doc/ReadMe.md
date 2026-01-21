@@ -49,7 +49,7 @@ Prime-M$ git clone --depth=1 https://github.com/SymTrioS/linux-m.git -b cedrus/h
 *- u-boot-m/configs/prime_m_defconfig*  
 *- linux-m/arch/arm/boot/dts/allwinner/sun8i-v3s-prime-m.tds*  
 *The 800x480x60Hz mode is selected by default.*  
-*And also check the setting of the required video buffer size in the file include/configs/sunxi-common.h - line 296:*  
+*And also check the setting of the required video buffer size in the file u-boot-m/include/configs/sunxi-common.h - line 296:*  
 *#define CONFIG_SUNXI_MAX_FB_SIZE (3 << 20). In this example, the size is 3 Mbytes.*  
 
 **U-BOOT**  
