@@ -44,8 +44,13 @@ Prime-M$ mkdir uSD
 Prime-M$ git clone https://github.com/SymTrioS/u-boot-m.git -b v3s-current  
 Prime-M$ git clone --depth=1 https://github.com/SymTrioS/linux-m.git -b cedrus/h264-encoding  
 
-*Before assembling the system, you can select the desired video display mode. To do this, you need to edit the u-boot-m/configs/prime_m_defconfig and linux-m/arch/arm/boot/dts/allwinner/sun8i-v3s-prime-m.tds files. The 800x480x60Hz mode is selected by default.*  
-*Set the buffer size required for the selected video mode in the file include/configs/sunxi-common.h - line 296: #define CONFIG_SUNXI_MAX_FB_SIZE (3 << 20). In this example, the size is 3 Mbytes.*  
+*Before assembling the system, you can select the desired video display mode.*  
+*To do this, you need to edit the following files:*  
+*- u-boot-m/configs/prime_m_defconfig*  
+*- linux-m/arch/arm/boot/dts/allwinner/sun8i-v3s-prime-m.tds*  
+*The 800x480x60Hz mode is selected by default.*  
+*And also check the setting of the required video buffer size in the file include/configs/sunxi-common.h - line 296:*  
+*#define CONFIG_SUNXI_MAX_FB_SIZE (3 << 20). In this example, the size is 3 Mbytes.*  
 
 **U-BOOT**  
 Prime-M$ cd u-boot-m  
