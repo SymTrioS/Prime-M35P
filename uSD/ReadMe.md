@@ -27,9 +27,8 @@ Prime-M35P/uSD$ sync
 *To set up the network, copy the interfaces file, having previously edited it.*  
 Prime-M35P/uSD$ sudo cp interfaces /mnt/etc/network/
 
-*Get https://disk.yandex.ru/d/VCLHKDqusnvv8A/linux-m.zip Linux drivers library and unzip in uSD folder*  
+*Linux drivers library out.zip unzip in uSD folder*  
 
-Prime-M35P/uSD$ cd linux-m  
-Prime-M35P/uSD/linux-m$ sudo cp -r out/lib /mnt/usr/  
-Prime-M35P/uSD/linux-m$ sync  
-Prime-M35P/uSD/linux-m$ sudo umount /dev/sdx2  
+Prime-M35P/uSD$ sudo cp -r out/lib /mnt/usr/  
+Prime-M35P/uSD$ sync  
+Prime-M35P/uSD$ sudo umount /dev/sdx2  
