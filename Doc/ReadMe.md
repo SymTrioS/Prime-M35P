@@ -41,15 +41,13 @@ $ sudo ln -s "/usr/local/bin/python2.7" "/usr/bin/python2"
 $ mkdir Prime-M  
 $ cd Prime-M  
 Prime-M$ mkdir uSD  
+Prime-M$ git clone https://github.com/SymTrioS/u-boot-m.git -b v3s-current  
+Prime-M$ git clone --depth=1 https://github.com/SymTrioS/linux-m.git -b cedrus/h264-encoding  
+
+*Before assembling the system, you can select the desired video display mode. To do this, you need to edit the u-boot-m/configs/prime_m_defconfig and linux-m/arch/arm/boot/dts/allwinner/sun8i-v3s-prime-m.tds files. The 800x480x60Hz mode is selected by default.*  
+*Set the buffer size required for the selected video mode in the file include/configs/sunxi-common.h - line 296: #define CONFIG_SUNXI_MAX_FB_SIZE (3 << 20). In this example, the size is 3 Mbytes.*  
 
 **U-BOOT**  
-Prime-M$ git clone https://github.com/SymTrioS/u-boot-m.git -b v3s-current  
-
-*To use the video output mode with a resolution of 1024 x 600, which is suitable for output to the monitor via a 40pinLCD-VGA adapter, it is necessary to make changes to the loader files:*  
-*configs/prime_m_defconfig - Replace the video mode line with the following: CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:18,pclk_khz:45000,le:150,ri:16,up:21,lo:2,hs:10,vs:2,sync:3,vmode:0"*  
-*include/configs/sunxi-common.h - Increase the size of the video buffer to 3 MB, line 296: #define CONFIG_SUNXI_MAX_FB_SIZE (3 << 20)*  
-*The finished loader file compiled for this display resolution is located in this directory: u-boot-sunxi-with-spl.bin*  
-
 Prime-M$ cd u-boot-m  
 Prime-M/u-boot-m$ make ARCH=arm CROSS_COMPILE=${CC} distclean  
 Prime-M/u-boot-m$ make ARCH=arm CROSS_COMPILE=${CC} prime_m_defconfig  
@@ -60,7 +58,6 @@ Prime-M/u-boot-m$ cp u-boot-sunxi-with-spl.bin ../uSD/
 Prime-M/u-boot-m$ cd ..  
 
 **KERNEL 6.6.0** (arm-linux-gnueabihf 13.3.0 cross-compiler)  
-Prime-M$ git clone --depth=1 https://github.com/SymTrioS/linux-m.git -b cedrus/h264-encoding  
 Prime-M$ cd linux-m  
 Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- distclean  
 Prime-M/linux-m$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- sunxi-m_defconfig  
