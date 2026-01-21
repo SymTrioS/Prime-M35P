@@ -200,7 +200,7 @@ The board includes integrated development tools accessible via a single USB Type
 ### LED Indicators
 
 During operation:
-- **Red LED** - Indicates FPGA register access (external ADC121 readout)
+- **Yellow LED** - Indicates FPGA register access (external ADC121 readout)
 
 ---
 
