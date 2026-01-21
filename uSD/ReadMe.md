@@ -1,6 +1,9 @@
 
 ## Preparing a uSD card:  
 
+*The files in the current directory are compiled for the 800x480x60Hz video mode.*  
+*Ready-made files for other video modes are located in the appropriate directories.*  
+
 Prime-M35P/uSD$ gparted  
 *Create two partitions: part1=~32M,fat16; part2=ext4*  
 *Remember the letter designation of the Flash device, below it is designated as x: sdx1,sdx2*  
