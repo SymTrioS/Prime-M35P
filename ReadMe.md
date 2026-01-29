@@ -18,7 +18,7 @@ The board includes integrated development tools accessible via a single USB Type
 
 ---
 
-Numbering, accessories, and pin functions of connectors Y1,Y6, and Y4:
+### Numbering, accessories, and pin functions of connectors Y1,Y6, and Y4:
 
 ![Prime-M35P Board](https://github.com/SymTrioS/Prime-M35P/blob/main/Jpg/M35P-Y1_Y6.jpg)
 
